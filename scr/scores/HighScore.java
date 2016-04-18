@@ -3,4 +3,4 @@ package scores;
 /**
 *Class useless for now
 **/
-Public class Highscore{}
+public class HighScore{}
