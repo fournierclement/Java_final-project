@@ -22,21 +22,28 @@ public class TestHighScore1 {
         while (! done) {
             done = true;
             //Asking for the filepath.
-            System.out.println("Emplacement du fichier :\n");
+            System.out.println("Emplacement du fichier :");
             String filePath ="";
-            //while (keyboard.hasNextLine()){
-                filePath = keyboard.nextLine();
-            //}
+            filePath = keyboard.nextLine();
             //Open the file.
             try{
-                scoreFile = new FileInputStream(new File(filePath));
+                scoreFile = new FileInputStream(filePath);
             }
             catch (FileNotFoundException e) {
                 done = false;
                 System.out.println(e);
             }
         }
-        try {scoreFile.close();} catch (IOException e) {}
+        //Get the text.
+        try {
+            String fileString = "";
+            int curByte;
+            while ( (curByte=scoreFile.read()) !=-1){
+                fileString += (char) curByte;
+            }
+            System.out.println(fileString);
+            scoreFile.close();
+        } catch (IOException e) {}
         
         //keyboard.close();
     }
@@ -45,9 +52,7 @@ public class TestHighScore1 {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("What's ur name?");
         String name ="";
-        //while (!keyboard.hasNextLine()){
-            name = keyboard.nextLine();
-        //}
+        name = keyboard.nextLine();
         System.out.println(name);
     }
 }
