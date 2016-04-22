@@ -26,12 +26,27 @@ public class ScoreGrid{
         }
     }
     
+    /**
+    *Return the current length of the grid.
+    */
+    public int length(){ return this.length ; }
+    
+    /**
+    *Get the xth name of the grid
+    *@param x the xth name to pick (from 1).
+    */
     public String getXName(int x){
-        return "";
+        if (x < this.length){ return this.names[x-1]; }
+        else { return this.names[this.length-1]; }
     }
     
-    public int getXScore(int X){
-        return 0;
+    /**
+    *Get the xth score of the grid
+    *@param x the xth score to pick (from 1).
+    */
+    public int getXScore(int x){
+        if (x < this.length){ return this.scores[x-1]; }
+        else { return this.scores[this.length-1]; }
     }
     
     public void addScore(String name, int score){
@@ -45,7 +60,7 @@ public class ScoreGrid{
         
     }
     
-    private void sortScores(){
+    public void sortScores(){
         
     }
     

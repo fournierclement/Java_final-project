@@ -49,11 +49,11 @@ public abstract class HighScore1 {
     /**
     *askName, take string standard input and print it.
     **/
-    public static void askName() {
+    public static String askName() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("What's ur name?");
         String name ="";
         name = keyboard.nextLine();
-        System.out.println(name);
+        return name;
     }
 }
