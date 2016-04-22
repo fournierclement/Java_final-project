@@ -6,6 +6,7 @@ package scores;
 public class TestHighScore{
     public static void main(String [] argv){
         HighScore1.askName();
-        System.out.println(HighScore1.readScore());
+        ScoreGrid fakeScores = new ScoreGrid(HighScore1.readScore());
+        System.out.println(fakeScores.toString());
     }
 }
