@@ -34,20 +34,23 @@ public class TestHighScore1 {
                 System.out.println(e);
             }
         }
-        //Get the text.
+        //Get the text into a string
         try {
             String fileString = "";
-            int curByte;
+            int curByte;.
+            //While we didn't reach the end of the file (read()=-1).
             while ( (curByte=scoreFile.read()) !=-1){
                 fileString += (char) curByte;
             }
+            //Print it
             System.out.println(fileString);
             scoreFile.close();
         } catch (IOException e) {}
-        
-        //keyboard.close();
     }
     
+    /**
+    *askName, take string standard input and print it.
+    **/
     public static void askName() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("What's ur name?");
