@@ -7,14 +7,12 @@ import java.util.*;
 *Main class ?
 **/
 
-public class TestHighScore1 {
+public abstract class HighScore1 {
 
-    public static void main(String [] args) {
-        askName();
-        readScores();
-    }
-
-    public static void readScores() {
+/**
+*readScore ask for a scoreFile and its content as a string.
+**/
+    public static String readScore() {
         Scanner keyboard = new Scanner(System.in);
         //While the File isn't open, try again.
         boolean done = false;
@@ -35,17 +33,17 @@ public class TestHighScore1 {
             }
         }
         //Get the text into a string
+        String fileString = "";
         try {
-            String fileString = "";
-            int curByte;.
+            int curByte;
             //While we didn't reach the end of the file (read()=-1).
             while ( (curByte=scoreFile.read()) !=-1){
                 fileString += (char) curByte;
             }
-            //Print it
-            System.out.println(fileString);
+            //Return here
             scoreFile.close();
         } catch (IOException e) {}
+        return fileString;
     }
     
     /**
