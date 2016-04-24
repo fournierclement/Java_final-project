@@ -1,6 +1,8 @@
 package scores;
 import java.io.*;
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 
 /**
@@ -55,5 +57,17 @@ public abstract class HighScore1 {
         String name ="";
         name = keyboard.nextLine();
         return name;
+    }
+    
+    public static String getScore() {
+        String resultscore="";
+        String ligne=""; 
+         BufferedReader br = new BufferedReader(new FileReader("https://api.thingspeak.com/channels/111160/feeds.csv"));
+        br.readLine(); /** Pour exclure la première ligne**/
+        while (br.readLine()!=null) {
+            ligne=br.readLine;
+            resultscore+=ligne+"/n";
+        }
+        return resultscore;
     }
 }
