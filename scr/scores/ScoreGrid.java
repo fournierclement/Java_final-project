@@ -6,23 +6,35 @@ package scores;
 public class ScoreGrid{
 
     private int length;
-    private String[] names;
+    private String[] dates;
+    private int[] orders;
     private int[] scores;
+    private String[] names;
     
     /**
     *Constructor
-    *@param scoreString raw string as score,name\n
+    *@param scoreString must be a raw string, the first line'll be ignored, the next one shall be 'date,order,score,name\n'
     */
     public ScoreGrid(String scoreString){
         //Cut each line, pray to respect the 'score,name\n'.
         String[] getLines = scoreString.split("\n");
-        this.length = getLines.length;
-        this.names = new String[this.length];
+        this.length = getLines.length-1;
+        this.dates = new String[this.length];
+        this.orders = new int[this.length];
         this.scores = new int[this.length];
+        this.names = new String[this.length];
+        
         //Put each name and score in their table.
-        for (int i = 0; i < this.length; i++){
-            this.scores[i] = Integer.parseInt(getLines[i].split(",")[0]);
-            this.names[i] = getLines[i].split(",")[1];
+        try{
+            for (int i = 0; i < this.length; i++){
+                this.dates[i] = getLines[i+1].split(",")[0];
+                this.orders[i] = Integer.parseInt(getLines[i+1].split(",")[1]);
+                this.scores[i] = Integer.parseInt(getLines[i+1].split(",")[2]);
+                this.names[i] = getLines[i+1].split(",")[3];
+            }
+        } catch (Exception e) {
+            System.out.println("Error, are you sure that your lines look like 'date,order,score,name' ?");
+            System.exit(-1);
         }
     }
     
@@ -55,15 +67,7 @@ public class ScoreGrid{
     
     public void remXScore(int X){
     }
-    
-    public void cutToN(int n){
-        
-    }
-    
-    public void sortScores(){
-        
-    }
-    
+
     /**
     *Return the grid as 'score,name\n' lines
     */
@@ -71,7 +75,10 @@ public class ScoreGrid{
         String toReturn = "";
         //easy loop
         for (int i = 0; i < this.length; i++){
-            toReturn += this.scores[i] + "," + this.names[i] + "\n";
+            toReturn += this.dates[i] + "," +
+                        this.orders[i] + "," +
+                        this.scores[i] + "," +
+                        this.names[i] + "\n";
         }
         return toReturn;
     }
