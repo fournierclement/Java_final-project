@@ -13,7 +13,7 @@ public class ScoreGrid{
     
     /**
     *Constructor
-    *@param scoreString must be a raw string, the first line'll be ignored, the next one shall be 'date,order,score,name\n'
+    *@param scoreString must be a raw string, the first line'll be ignored, the next one shall be 'date,order,score,name\n.
     */
     public ScoreGrid(String scoreString){
         //Cut each line, pray to respect the 'score,name\n'.
@@ -40,12 +40,14 @@ public class ScoreGrid{
     
     /**
     *Return the current length of the grid.
+    *@return length int.
     */
     public int length(){ return this.length ; }
     
     /**
     *Get the xth name of the grid
     *@param x the xth name to pick (from 1).
+    *@return a name
     */
     public String getXName(int x){
         if (x < this.length){ return this.names[x-1]; }
@@ -55,21 +57,28 @@ public class ScoreGrid{
     /**
     *Get the xth score of the grid
     *@param x the xth score to pick (from 1).
+    *@return a score
     */
     public int getXScore(int x){
         if (x < this.length){ return this.scores[x-1]; }
         else { return this.scores[this.length-1]; }
     }
     
+    /**
+    *Not implemented yet.
+    **/
     public void addScore(String name, int score){
         
     }
     
+    /**
+    *Not implemented yet.
+    **/
     public void remXScore(int X){
     }
 
     /**
-    *Return the grid as 'score,name\n' lines
+    *@return the grid as 'date,order,score,name\n' lines
     */
     public String toString(){
         String toReturn = "";

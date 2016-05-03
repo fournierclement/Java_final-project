@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
-*Class useless for now
+*Main class.
 **/
 public class TestHighScore{
 
@@ -22,6 +22,7 @@ public class TestHighScore{
 
 	/**
 	*readScore ask for a scoreFile and its content as a string.
+	*@return The text from a file asked in input.
 	**/
     public static String readScore() {
         Scanner keyboard = new Scanner(System.in);
@@ -59,6 +60,7 @@ public class TestHighScore{
     
     /**
     *askName, take string standard input and print it.
+    *@return String the name asked in input.
     **/
     public static String askName() {
         Scanner keyboard = new Scanner(System.in);

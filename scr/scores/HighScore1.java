@@ -12,6 +12,7 @@ public abstract class HighScore1 {
 
     /**
     *getScore read our feeds.csv and return it as a string.
+    *@return The content of our online feed as a string.
     **/    
     public static String getScore() {
         String resultScore="";
