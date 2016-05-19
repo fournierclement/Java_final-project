@@ -1,6 +1,5 @@
-On en est après le 1.4, il faut implémenter getScore() et faire un compte thingspeak.
+j'ai réalisé toutes les étapes de la step 2 toutefois je n'arrive pas à corriger une erreur liée au fonctionement de la classe getscore qui renvoie un string alors qu'il pourrait être plus coohérent de renvoyer un tableau de string au lieu de faire des retours chariot. 
 
-J'ai commencé un type abstrait ScoreGrid parce que c'est un truc du genre qu'on va manipuler en boucle.
+On en discute vendredi
 
-Je savais pas à quoi devait servir HighScore donc j'ai tout bourré dedans en classe abstraite.
-          -Clem
+          -james

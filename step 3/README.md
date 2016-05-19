@@ -1,6 +1,3 @@
-On en est après le 1.4, il faut implémenter getScore() et faire un compte thingspeak.
+Je commence tout de même la step 3, car elle n'impact pas les actions réalisé dans la step 2, tout en prenant en compte qu'il faudra corriger l'erreur de la step 2
 
-J'ai commencé un type abstrait ScoreGrid parce que c'est un truc du genre qu'on va manipuler en boucle.
-
-Je savais pas à quoi devait servir HighScore donc j'ai tout bourré dedans en classe abstraite.
-          -Clem
+          -James
