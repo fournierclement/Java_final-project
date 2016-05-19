@@ -32,5 +32,17 @@ public class BestPlayer {
 
     }
 
+    public int getScore (){
+        return this.score;
+    }
+
+    public String getPayer(){
+        return this.player
+    }
+
+
+
+
+
 
 }

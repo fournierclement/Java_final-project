@@ -58,6 +58,13 @@ public abstract class HighScore1 {
         }
 
 
+        public void sendScore(BestPlayer p){
+        
+                String nom = p.getName();
+                int score = p.getPlayer();
+
+                url getURL = new URL("https://api.thingspeak.com/update?api_key=GSY8KGY3OIBH0496&field1="+score+ "&field2="+nom);
+                getURL.openStream();
 
 
     
