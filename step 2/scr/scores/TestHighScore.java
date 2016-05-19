@@ -18,6 +18,11 @@ public class TestHighScore{
         System.out.println(playerName + ": you randomized the " + randomize + " th score " + fakeScores.getXScore(randomize) + ".");
 
         System.out.println(HighScore1.getScore());
+
+        //Afficher les 10 meilleurs scores 
+        //BestPlayer[] ScoresTenArray=HighScore1.tenBestScores(HighScore1.getScore());
+
+        System.out.println(HighScore1.tenBestScores(HighScore1.getScore()));
     }
 
 	/**

@@ -34,4 +34,31 @@ public abstract class HighScore1 {
         } catch (Exception e) { System.out.println("Error.");}
         return resultScore;
     }
+
+    public BestPlayer[] tenBestScores(String [] readScores){
+        
+        BestPlayer[] all= new BestPlayer[readScores.length];
+
+        List<BestPlayer> leadingPlayers = new ArrayList<>();
+
+        for(int i=0; i<readScores.length;i++){
+            String[] oneScore = (readScores[i]).split(",");
+            all[i]=new BestPlayer(oneScore[3],Integer.parseInt(oneScore[2]));
+            
+            leadingPlayers.add(all[i]);
+
+        }
+
+
+        return leadingPlayers.subList(0,10).toArray(new BestPlayer[10]);
+
+
+        
+
+        }
+
+
+
+
+    
 }
