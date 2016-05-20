@@ -14,7 +14,7 @@ public abstract class HighScore1 {
     *getScore read our feeds.csv and return it as a string.
     *@return The content of our online feed as a string.
     **/    
-    public static String getScore() {
+    public static String[] getScore() {
         String resultScore="";
 
         try {
@@ -32,10 +32,10 @@ public abstract class HighScore1 {
                 resultScore+= line + "\n";
             }
         } catch (Exception e) { System.out.println("Error.");}
-        return resultScore;
+        return resultScore.split("\n");
     }
 
-    public BestPlayer[] tenBestScores(String [] readScores){
+    public static BestPlayer[] tenBestScores(String [] readScores){
         
         BestPlayer[] all= new BestPlayer[readScores.length];
 
