@@ -57,14 +57,16 @@ public abstract class HighScore4 {
         BestPlayer lesser = new BestPlayer("NONE", 0);
         while (rank < 10){
             tenBestScores[rank] = lesser;
+            int picked = 0;
             //look for the biggest of the array
             for (int i = 0; i < all.length ; i++){
                 //if all[i] is bigger, continu with it
                 if (tenBestScores[rank].compareTo(all[i]) < 0){
                     tenBestScores[rank] = all[i];
-                    all[i] = lesser;
+                    picked = i;
                 }
             }
+            all[picked]=lesser;
             rank++;
         }
         return tenBestScores;
