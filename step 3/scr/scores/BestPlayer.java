@@ -32,12 +32,14 @@ public class BestPlayer {
 
     }
 
+    public String toString(){return (player+" : "+score);}
+
     public int getScore (){
         return this.score;
     }
 
-    public String getPayer(){
-        return this.player
+    public String getPlayer(){
+        return this.player;
     }
 
 

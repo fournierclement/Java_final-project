@@ -11,18 +11,15 @@ public class TestHighScore{
     public static void main(String [] argv){
 
         String playerName = askName();
-
-        ScoreGrid fakeScores = new ScoreGrid(readScore());
-        System.out.println(fakeScores.toString());
-        int randomize = (int) ( fakeScores.length() * Math.random() ) + 1;
-        System.out.println(playerName + ": you randomized the " + randomize + " th score " + fakeScores.getXScore(randomize) + ".");
-
-        System.out.println(HighScore1.getScore());
-
-        //Afficher les 10 meilleurs scores 
-        //BestPlayer[] ScoresTenArray=HighScore1.tenBestScores(HighScore1.getScore());
-
-        System.out.println(HighScore1.tenBestScores(HighScore1.getScore()));
+        String playerScore = askScore();
+        BestPlayer p = new BestPlayer(playerName, Integer.parseInt(playerScore));
+        BestPlayer[] top10 = HighScore3.tenBestScores(HighScore3.getScores());
+        if(top10[9].getScore() < p.getScore()){
+            System.out.println("You are in the top10 !");
+            HighScore3.sendScore(p);
+            top10 = HighScore3.tenBestScores(HighScore3.getScores());
+        } else{System.out.println("You are not in the top10..."); }
+        for (BestPlayer player : top10){ System.out.println(player.toString());}
     }
 
 	/**
@@ -73,5 +70,16 @@ public class TestHighScore{
         String name ="";
         name = keyboard.nextLine();
         return name;
+    }
+     /**
+    *askScore, take string standard input and print it.
+    *@return String the Score asked in input.
+    **/
+    public static String askScore() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's ur name?");
+        String score ="";
+        score = keyboard.nextLine();
+        return score;
     }
 }
