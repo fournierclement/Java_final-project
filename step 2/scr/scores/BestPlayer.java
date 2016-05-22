@@ -16,6 +16,12 @@ public class BestPlayer {
 	}
 
 
+    /**
+    *@return a string "name : score"
+    **/
+    public String toString(){
+        return player + " : " + score;
+    }
 
     public int compareTo (BestPlayer p){
     	if (score<p.score)

@@ -8,13 +8,13 @@ import java.net.*;
 *Main class ?
 **/
 
-public abstract class HighScore1 {
+public abstract class HighScore2 {
 
     /**
-    *getScore read our feeds.csv and return it as a string.
-    *@return The content of our online feed as a string.
+    *getScores read our feeds.csv and return it as a string.
+    *@return The content of our online feed as an array of string.
     **/    
-    public static String[] getScore() {
+    public static String[] getScores() {
         String resultScore="";
 
         try {
@@ -35,30 +35,38 @@ public abstract class HighScore1 {
         return resultScore.split("\n");
     }
 
+    /**
+    *tenBestScores get the 10 or less best scores of an Arrray of string.
+    *All given score must be positive integers;
+    *@param readScores as an array of string with the getScores() synthaxe
+    *@return An array of 10 or less BestPlayer objets
+    **/
     public static BestPlayer[] tenBestScores(String [] readScores){
         
         BestPlayer[] all= new BestPlayer[readScores.length];
 
-        List<BestPlayer> leadingPlayers = new ArrayList<>();
+        BestPlayer[] tenBestScores = new BestPlayer[10];
 
         for(int i=0; i<readScores.length;i++){
             String[] oneScore = (readScores[i]).split(",");
             all[i]=new BestPlayer(oneScore[3],Integer.parseInt(oneScore[2]));
-            
-            leadingPlayers.add(all[i]);
-
         }
 
-
-        return leadingPlayers.subList(0,10).toArray(new BestPlayer[10]);
-
-
-        
-
+        //for the best 10 (or max lines):
+        int rank = 0;
+        BestPlayer lesser = new BestPlayer("NONE", 0);
+        while (rank < 10){
+            tenBestScores[rank] = lesser;
+            //look for the biggest of the array
+            for (int i = 0; i < all.length ; i++){
+                //if all[i] is bigger, continu with it
+                if (tenBestScores[rank].compareTo(all[i]) < 0){
+                    tenBestScores[rank] = all[i];
+                    all[i] = lesser;
+                }
+            }
+            rank++;
         }
-
-
-
-
-    
+        return tenBestScores;
+    }
 }

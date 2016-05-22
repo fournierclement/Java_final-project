@@ -9,20 +9,10 @@ import java.util.*;
 public class TestHighScore{
 
     public static void main(String [] argv){
-
-        String playerName = askName();
-
-        ScoreGrid fakeScores = new ScoreGrid(readScore());
-        System.out.println(fakeScores.toString());
-        int randomize = (int) ( fakeScores.length() * Math.random() ) + 1;
-        System.out.println(playerName + ": you randomized the " + randomize + " th score " + fakeScores.getXScore(randomize) + ".");
-
-        System.out.println(HighScore1.getScore());
-
-        //Afficher les 10 meilleurs scores 
-        //BestPlayer[] ScoresTenArray=HighScore1.tenBestScores(HighScore1.getScore());
-
-        System.out.println(HighScore1.tenBestScores(HighScore1.getScore()));
+        BestPlayer[] top10 = HighScore2.tenBestScores(HighScore2.getScores());
+        for (BestPlayer player : top10){
+            System.out.println(player.toString());
+        }
     }
 
 	/**
